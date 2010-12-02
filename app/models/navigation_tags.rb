@@ -68,7 +68,8 @@ module NavigationTags
   end
   
   tag "sub-nav" do |tag|
-    current_page = tag.locals.page
+    # current_page = tag.locals.page
+    current_page = tag.globals.page
     child_page = tag.attr[:page]
     depth = tag.attr[:depth]
     css_class = [("current" if current_page == child_page), ("has_children" if child_page.children.size > 0), ("parent_of_current" if current_page.url.starts_with?(child_page.url) and current_page != child_page)].compact
