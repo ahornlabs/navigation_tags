@@ -100,7 +100,8 @@ module NavigationTags
     (@only and !child_page.url.match(@only)) or
     (@except and child_page.url.match(@except)) or
     !child_page.in_navigation or
-    child_page.part("no-map") or child_page.virtual? or !child_page.published? or child_page.class_name.eql? "FileNotFoundPage"    
+    child_page.part("no-map") or child_page.virtual? or !child_page.published? or child_page.class_name.eql? "FileNotFoundPage" or
+    (defined?(Globalize2Extension) && !child_page.translated_locales.include?(I18n.locale))
   end
   
   
