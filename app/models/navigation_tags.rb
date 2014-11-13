@@ -72,10 +72,7 @@ module NavigationTags
     current_page = tag.globals.page
     child_page = tag.attr[:page]
     depth = tag.attr[:depth]
-<<<<<<< HEAD:app/models/navigation_tags.rb
-=======
     return if child_page.part("no-map") or !child_page.in_navigation? or child_page.virtual? or !child_page.published? or child_page.class_name.eql? "FileNotFoundPage"
->>>>>>> f804c13e0c412b95c24b8cf4652eb9f29b6cc95a:lib/navigation_tags.rb
     css_class = [("current" if current_page == child_page), ("has_children" if child_page.children.size > 0), ("parent_of_current" if current_page.url.starts_with?(child_page.url) and current_page != child_page)].compact
     if !@first_set
       css_class << 'first'
